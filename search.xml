@@ -4,13 +4,27 @@
   
     
     <entry>
-      <title>Hello World</title>
-      <link href="2021/05/19/hello-world/"/>
-      <url>2021/05/19/hello-world/</url>
+      <title>拥有个人博客啦</title>
+      <link href="2018/09/07/hello-world/"/>
+      <url>2018/09/07/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="属于沃若的小窝"><a href="#属于沃若的小窝" class="headerlink" title="属于沃若的小窝"></a>属于沃若的小窝</h1><blockquote><p>好羞耻的标题啊，好像匿名（x，但是你们也不知道我是谁是不是</p></blockquote><h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>去年疫情试着在 WordPress 上开了个博客 <a href="https://frozenwhale.wordpress.com/">frozenwhale’s blog</a>，写了三篇博文…然后就鸽了鸽了。</p><p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210519202154508.png" alt="image-20210519202154508"></p><p>后来转战 csdn，但是发了两篇简单的题解后，又咕咕咕了<span class="github-emoji"><span>🐷</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f437.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p><p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210519202612278.png" alt="image-20210519202612278"></p><p>尴尬，怎么还有 3000 的访问量（x，菜鸡的事实被发现了</p><p>自从习惯 google 之后，发现经常搜到一些个人博客，在被各种 lab 折磨的时候给了莫大的参考价值，于是也打算建一个。本来计划托管在 github，但是想到经常登不上 github.io，就在自己的服务器上部署了一下。服务器还是去年做校创项目嫖的，嫖了好几年，很不错。</p><h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><p>目前大三，快保研了，最近不会更，希望大四可以分享自己的生活~</p>]]></content>
       
       
+      <categories>
+          
+          <category> 日常 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+            <tag> 测试 </tag>
+            
+        </tags>
       
     </entry>
     
