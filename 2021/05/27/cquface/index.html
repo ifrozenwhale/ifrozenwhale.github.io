@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="共享画板, 沃若的森林">
+    <meta name="keywords" content="CQU-Face, 沃若的森林">
     <meta name="description" content="桑之未落，其叶沃若">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>共享画板 | 沃若的森林</title>
+    <title>CQU-Face | 沃若的森林</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image1.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/20210527013049.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">共享画板</h1>
+                    <h1 class="description center-align post-title">CQU-Face</h1>
                 </div>
             </div>
         </div>
@@ -433,16 +433,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
                             </a>
                         
-                            <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">网络</span>
+                            <a href="/tags/Js/">
+                                <span class="chip bg-color">Js</span>
                             </a>
                         
-                            <a href="/tags/GUI/">
-                                <span class="chip bg-color">GUI</span>
+                            <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                <span class="chip bg-color">前端</span>
                             </a>
                         
                     </div>
@@ -466,28 +466,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-26
+                    2021-05-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-26
+                    2021-05-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    717
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    2 分
                 </div>
                 
 
@@ -502,123 +502,103 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="共享网络画板"><a href="#共享网络画板" class="headerlink" title="共享网络画板"></a>共享网络画板</h1><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/share_drawing">https://github.com/ifrozenwhale/share_drawing</a></p>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ol>
-<li>客户端为 client 包下的 AppClient1 和 AppClient2</li>
-<li>服务端为 server 包下的 Server（默认配置了本地启动，端口号）</li>
-<li>其他类的 main 函数为测试函数</li>
+                <h1 id="CQU-FACE"><a href="#CQU-FACE" class="headerlink" title="CQU-FACE"></a>CQU-FACE</h1><ol>
+<li><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li><p>图片上传/即时拍照人脸特征分析展示</p>
+</li>
+<li><p> 分析报告社区分享</p>
+</li>
+<li><p> 社区动态发现、点赞、评论</p>
+</li>
+<li><p> 用户关注、收藏等</p>
+</li>
+<li><p> 历史记录查询和编辑</p>
+</li>
+<li><p> 登录/未登录身份权限控制</p>
+</li>
+<li><p> 漂亮的UI</p>
+</li>
+</ul>
+<h2 id="前端技术"><a href="#前端技术" class="headerlink" title="前端技术"></a>前端技术</h2><h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><ul>
+<li>Vue.js</li>
+<li>vue/cli (多页面)</li>
+<li>vue-router</li>
+<li>vuetify</li>
+<li>axios</li>
+</ul>
+<h3 id="权限控制"><a href="#权限控制" class="headerlink" title="权限控制"></a>权限控制</h3><p>分为前端路由控制和后端令牌验证</p>
+<ul>
+<li><p>通过vue-router导航守卫，使用router.beforeEach来检查路由跳转条件。</p>
+<p>判断是否需要登录</p>
+<ul>
+<li>是，从localStorage中拿到account<ul>
+<li>如果拿到account则可以跳转</li>
+<li>否则重定向到登录页，并记录当前路由，登录后跳转回来</li>
+</ul>
+</li>
+<li>否，可以跳转</li>
+</ul>
+</li>
+<li><p>通过Axios拦截器Interceptors进行全局的ajax请求配置</p>
+<ul>
+<li>request：在Header中添加token字段</li>
+<li>response：返回状态码405（自定义），表示未授权，跳转登录页。</li>
+</ul>
+</li>
+</ul>
+<h3 id="处理跨域问题、CSRF问题"><a href="#处理跨域问题、CSRF问题" class="headerlink" title="处理跨域问题、CSRF问题"></a>处理跨域问题、CSRF问题</h3><ul>
+<li><p>后端django-cors-headers配置解决跨域问题</p>
+</li>
+<li><p>axios配置头Header添加X-CSRFToken，通过正则表达来从cookie中拿到csrftoken，进行验证</p>
+</li>
+</ul>
+<h3 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h3><ul>
+<li>由router-view控制路由，以及路由对应的视图。并配置404页面。</li>
+</ul>
+<h3 id="前端框架"><a href="#前端框架" class="headerlink" title="前端框架"></a>前端框架</h3><ul>
+<li>使用vue/cli快速搭建前端工程，形成目录结构和必要文件</li>
+<li>配置Vue多页面，welcome为单独页，应用页单独页</li>
+<li>在App.vue中进行全局模板的配置，上方使用一个Bar，左侧使用抽屉导航栏，下方使用Footer页脚，中间部分为功能部件，使用<router-view>，由vue-router进行控制显示视图页面。</router-view></li>
+</ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>组件化开发，封装常用的部分为单Vue组件，在其他页面引入，代码复用。</li>
+<li>API接口全部封装为函数，由单独的js文件进行管理，需要的页面中只需引入。</li>
+<li>界面简洁，使用v-if条件渲染，位置重用，试图切换，避免一切不必要的显示。</li>
+<li>注重用户交互，给予良好的操作提示。</li>
+<li>响应式页面，注意屏幕尺寸适配。</li>
+<li>提供了严格的表单数据校验。</li>
+</ul>
+<h2 id="个人工作"><a href="#个人工作" class="headerlink" title="个人工作"></a>个人工作</h2><ol>
+<li>前端、后端项目框架搭建</li>
+<li>前端的依赖配置、权限控制、路由控制、请求控制，异常处理</li>
+<li>前端页面实现<ul>
+<li>欢迎页，模板页</li>
+<li>登录、注册模块</li>
+<li>头像处理、信息修改模块</li>
+<li>图片数据采集，分析报告显示、语音播报，分享</li>
+<li>历史分享管理</li>
+</ul>
+</li>
+<li>后端异常处理</li>
+<li>整合所有前端模块，对接前后端模块，调试分析</li>
+<li>界面优化，用户交互优化</li>
 </ol>
-<h2 id="实现的功能"><a href="#实现的功能" class="headerlink" title="实现的功能"></a>实现的功能</h2><h3 id="基本图形与操作"><a href="#基本图形与操作" class="headerlink" title="基本图形与操作"></a>基本图形与操作</h3><ul>
-<li><p>任意曲线（Free Line）、圆点（Dot）、直线（Line）、矩形（Rectangle）、三角形（Triangle）</p>
-</li>
-<li><p>套索工具（Select）</p>
-<ul>
-<li>矩形区域选择框：支持一个或多个图形</li>
-</ul>
-</li>
-<li><p>变形（Reshape）</p>
-<ul>
-<li>选中图形的控制点，改变图形形状</li>
-</ul>
-</li>
-<li><p>移动（Move）</p>
-<ul>
-<li>以鼠标按下为移动中心，进行拖动</li>
-<li>可同时移动或多个图形</li>
-</ul>
-</li>
-<li><p>样式修改（Style）</p>
-<ul>
-<li>线条颜色（Line Color）</li>
-<li>线条粗细（Stroke）</li>
-</ul>
-</li>
-<li><p>颜色填充（Fill）</p>
-</li>
-</ul>
-<h3 id="图层（非网络模式）"><a href="#图层（非网络模式）" class="headerlink" title="图层（非网络模式）"></a>图层（非网络模式）</h3><ul>
-<li>图层选择区域，可以切换图层和图层显示</li>
-<li>图层创建和删除</li>
-<li>图层操作</li>
-</ul>
-<h3 id="重绘、清除"><a href="#重绘、清除" class="headerlink" title="重绘、清除"></a>重绘、清除</h3><ul>
-<li>抹除（Remove）：可同时抹除一个或者多个图形</li>
-<li>清空（Clear）</li>
-<li>撤销（Undo）</li>
-<li>重做（Redo）</li>
-</ul>
-<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><ul>
-<li>画板背景色（Background Color）</li>
-<li>默认线条颜色（Default Color）</li>
-<li>默认线条粗细（Default Stroke）</li>
-</ul>
-<h3 id="保存、导出、打开"><a href="#保存、导出、打开" class="headerlink" title="保存、导出、打开"></a>保存、导出、打开</h3><ul>
-<li>保存设置（Global Configuration）<ul>
-<li>下次启动程序恢复已保存的全局设置</li>
-</ul>
-</li>
-<li>保存图形（Save Shape）<ul>
-<li>将图形数据保存为数据文件</li>
-</ul>
-</li>
-<li>导出<ul>
-<li>利用套索工具，选择画板的区域</li>
-<li>导出为JPG图片</li>
-</ul>
-</li>
-<li>打开<ul>
-<li>新建画板</li>
-<li>从保存的数据文件中加载画板信息</li>
-</ul>
-</li>
-</ul>
-<h3 id="同步绘图"><a href="#同步绘图" class="headerlink" title="同步绘图"></a>同步绘图</h3><ul>
-<li>共享画板视图</li>
-<li>共享图形编辑权限</li>
-</ul>
-<h2 id="UI-界面"><a href="#UI-界面" class="headerlink" title="UI 界面"></a>UI 界面</h2><ul>
-<li>主窗口</li>
-</ul>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image1.png" alt="主窗口"></p>
-<ul>
-<li>菜单栏</li>
-</ul>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image2.png" alt="菜单栏"></p>
-<ul>
-<li>Undo操作时，如果索引无效，则进行提示</li>
-</ul>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image7.png" alt="undo 异常操作提示"></p>
-<ul>
-<li>导出图片时，选择保存文件的路径。</li>
-</ul>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image11.png" alt="导出图片"></p>
-<ul>
-<li>启动应用程序时，可以选择是否加入服务器，共享绘图板，进行同步绘图。需要注意的是，服务器不退出，保留着绘图信息，即使客户端退出，重新加入，依旧可以初始化为最新的视图并进行编辑。</li>
-<li>加入服务器时，输入服务器ip及端口号，格式为<code>xx.xx.xx.xx:xxxxx</code>。</li>
-<li>如果输入的服务器端口不对或者服务器未启动，则进行提示确认服务器运行；如果输入格式不正确，提示格式错误。</li>
-</ul>
-<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
-<li>free line 为任意线条，dot 为实心圆点，line 为直线，triangle 为等腰三角形，rectangle 为矩形。</li>
-<li>select 为套索工具，绘制矩形。可选中整个图形，可选中图形的顶点，可选中图形的边，可选中1个或者多个图形。</li>
-<li>move 为移动操作。select 选中图形后，以鼠标按下位置为起始点，拖动鼠标进行移动。</li>
-<li>reshape 为变形操作。需通过 select 选中图形的某个顶点，然后点击 reshape 进入变形模式，拖动顶点完成变形。</li>
-<li>style 为样式设置，可以设置颜色和线条粗细。如若未选中图形，则只设置画笔样式；选中图形，则对选中图形进行样式的修改。</li>
-<li>fill 为填充操作。点击 fill 后，选择颜色，再点击图形内部（点中多个，选中最后绘制的图形），完成填充。</li>
-<li>clear 为清空画板。</li>
-<li>remove 为移除图形，需要先 select 选择1个或多个图形，再点击 remove 进行移除。</li>
-<li>undo 和 redo 支持上述所有操作，进行回退和重做。</li>
-<li>File 菜单栏支持导出图片，支持保存为 .shape 数据文件，启动程序时可以打开 .shape 文件。</li>
-<li> Settings 菜单栏 style 支持默认样式的修改，即启动应用后的画笔颜色和粗细；</li>
-<li> Settings 中 background 项为设置画板的背景颜色，此设置将会被保存，下次启动时默认颜色即设置的颜色。</li>
-<li>登录时选择加入服务器，则会同步服务器上的图形数据，进行同步、共享绘图。</li>
-<li>登录时不加入服务器，选择新建画布，则生成空画板；否则选择 .shape 文件初始化画板图形。</li>
-<li>不加入服务器时，可以利用图层分层绘制图形并做一系列的修改。</li>
+<ol>
+<li>前、后端项目框架搭建</li>
+<li>前端配置、权限、请求、路由控制</li>
+<li>前端页面实现欢迎页、模板页，登录注册、信息修改，数据采集显示、分享</li>
+<li>前端整合、后端对接、异常处理</li>
 </ol>
-<h2 id="类的关系"><a href="#类的关系" class="headerlink" title="类的关系"></a>类的关系</h2><p>Shape 作为数据的抽象基类，实现图形数据的公共方法，Rectangle 等子类完成各自的数据处理操作。</p>
-<p>Graphics 类继承自 java.swingx.JPanel，作为画板，拥有 Shape 数据成员，调用 Shape 及其子类的方法，完成逻辑操作，同时显示图形。</p>
-<p>App类继承自 java.swingx.JFrame，作为主界面类，拥有一系列组件，包括 Graphics 显示图形。</p>
-<p>ErrorView 类继承自 JDialog，以对话框的形式提示。</p>
-<p>StyleConfig 类继承自 JDialog，以对话框的形式供选择。</p>
+</li>
+</ol>
+<h1 id="界面展示"><a href="#界面展示" class="headerlink" title="界面展示"></a>界面展示</h1><p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E6%AC%A2%E8%BF%8E.png" alt="Image text"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF.png" alt="个人信息"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E6%B3%A8%E5%86%8C.png" alt="Image text"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E5%BC%80%E5%A7%8B%E9%A1%B5.png" alt="Image text"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E5%88%86%E4%BA%AB.png" alt="Image text"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E8%AF%A6%E6%83%85.png" alt="Image text"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E5%8E%86%E5%8F%B2%E8%AF%86%E5%88%AB.png" alt="Image text"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E6%94%B6%E8%97%8F%E5%A4%B9.png" alt="Image text"></p>
 
                 
             </div>
@@ -645,7 +625,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://frozenwhale.top/2021/05/26/gong-xiang-wang-luo-hua-ban/">http://frozenwhale.top/2021/05/26/gong-xiang-wang-luo-hua-ban/</a>
+                    <a href="http://frozenwhale.top/2021/05/27/cquface/">http://frozenwhale.top/2021/05/27/cquface/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -683,16 +663,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">网络</span>
+                                <a href="/tags/Js/">
+                                    <span class="chip bg-color">Js</span>
                                 </a>
                             
-                                <a href="/tags/GUI/">
-                                    <span class="chip bg-color">GUI</span>
+                                <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                    <span class="chip bg-color">前端</span>
                                 </a>
                             
                         </div>
@@ -742,23 +722,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/26/file-manager/">
+                <a href="/2021/05/27/ip-protocal/">
                     <div class="card-image">
                         
-                        <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/20210527005415.png" class="responsive-img" alt="GUI 文件管理器">
+                        <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/20210527014327.png" class="responsive-img" alt="网络协议封装">
                         
-                        <span class="card-title">GUI 文件管理器</span>
+                        <span class="card-title">网络协议封装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java文件管理器，支持文件树和文件列表，支持文件夹创建、删除、复制、粘贴、加密解密、压缩解压。
+                            在 Linux 上使用 C 语言在数据链路层上通信，实现Ethernet，IPv4 和 UDP 协议以及应用层封装。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
                         </span>
                         <span class="publish-author">
                             
@@ -775,16 +755,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">网络</span>
                     </a>
                     
-                    <a href="/tags/GUI/">
-                        <span class="chip bg-color">GUI</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C</span>
                     </a>
                     
-                    <a href="/tags/MVC/">
-                        <span class="chip bg-color">MVC</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/socket/">
+                        <span class="chip bg-color">socket</span>
                     </a>
                     
                 </div>
@@ -798,30 +782,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/19/hello-world/">
+                <a href="/2021/05/27/xiang-mu-zhu-ye/">
                     <div class="card-image">
                         
-                        <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/sea.jpg" class="responsive-img" alt="拥有个人博客啦">
+                        <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/forest.jpg" class="responsive-img" alt="项目主页（部分）">
                         
-                        <span class="card-title">拥有个人博客啦</span>
+                        <span class="card-title">项目主页（部分）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第一次使用hexo搭建个人博客，好像真的很简单
+                            在这里简单列一下自己的一些项目设计~
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%97%A5%E5%B8%B8/" class="post-category">
-                                    日常
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    项目
                                 </a>
                             
                             
@@ -831,12 +815,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                        <span class="chip bg-color">程序设计</span>
                     </a>
                     
-                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
-                        <span class="chip bg-color">测试</span>
+                    <a href="/tags/%E4%B8%93%E4%B8%9A%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">专业基础</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                        <span class="chip bg-color">数模</span>
                     </a>
                     
                 </div>
