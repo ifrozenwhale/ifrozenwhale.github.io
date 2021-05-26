@@ -141,19 +141,11 @@ https://github.com/ifrozenwhale/bigdata-movie-recommend
 
 ## [不等圆的不重叠随机排列](https://github.com/ifrozenwhale/non-overlapping-circle)
 
- ![七彩球鲸鱼](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527003719354.png)
+不等圆的packing问题，基于概率策略化的随机游走。在缝隙处可额外进行补充，使更加丰满。
 
 ## [自定义轮廓的随机纹路生成](https://github.com/ifrozenwhale/randomPicture)
 
-
-
-![五彩鲸鱼](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/color_whale.png)
-
-
-
-
-
-![](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/voronoi%E9%B2%B8%E9%B1%BC.png)
+体现了数学中的随机美。可以给出图形，在图形内基于 Voronoi 图生成随机纹路，可以进行颜色填充。
 
 
 
