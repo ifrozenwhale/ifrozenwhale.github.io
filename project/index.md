@@ -4,15 +4,11 @@
 
 ## 共享网络画板
 
-一个网络画板，支持本地或者联机同步绘图，多种图形（任意曲线、圆点、直线、矩形、三角形），支持套索工具，样式填充、修改，形状调整、移动，支持 undo 与 redo，支持保存和导出图片等。
-
-[blog](./../gong-xiang-wang-luo-hua-ban/)
+一个网络画板，支持本地或者联机同步绘图，多种图形（任意曲线、圆点、直线、矩形、三角形），支持套索工具，样式填充、修改，形状调整、移动，支持 undo 与 redo，支持保存和导出图片等。[blog](./../gong-xiang-wang-luo-hua-ban/)
 
 ## 文件管理器
 
-使用 Java 实现，支持文件树和文件列表，支持文件夹创建、删除、复制、粘贴、加密解密、压缩解压。
-
-[blog](./../file-manager)
+使用 Java 实现，支持文件树和文件列表，支持文件夹创建、删除、复制、粘贴、加密解密、压缩解压。[blog](./../file-manager)
 
 ## 经典小游戏
 
@@ -26,43 +22,31 @@
 
 ## ATM 模拟
 
-初学面向对象时，使用 C++ 完成的，基于命令行的ATM模拟程序的设计。实现了分类账户（存款、取款），转账，交易记录，限额，未读消息等功能，实现了接口分离。
-
-[code](https://github.com/ifrozenwhale/Easy-ATM)
+初学面向对象时，使用 C++ 完成的，基于命令行的ATM模拟程序的设计。实现了分类账户（存款、取款），转账，交易记录，限额，未读消息等功能，实现了接口分离。[code](https://github.com/ifrozenwhale/Easy-ATM)
 
 ## 基于 CAS 的单点登录系统
 
-基于 CAS （统一认证服务）流程，设计了自己的单点登录、登出系统。
-
-[code](https://github.com/ifrozenwhale/JAVAEE_SSO)
+基于 CAS （统一认证服务）流程，设计了自己的单点登录、登出系统。[code](https://github.com/ifrozenwhale/JAVAEE_SSO)
 
 ## 基于 servlet 的 MVC 框架实现
 
-通过实现 IOC 容器，管理 Java Bean，使用 servlet 实现 GET/PUT 请求处理控制器，并提供 ModelView 模式或 Json 对象。
-
-[code](https://github.com/ifrozenwhale/myspringmvc)
+通过实现 IOC 容器，管理 Java Bean，使用 servlet 实现 GET/PUT 请求处理控制器，并提供 ModelView 模式或 Json 对象。[code](https://github.com/ifrozenwhale/myspringmvc)
 
 # 科创与开发项目
 
 ## 基于数据挖掘的编程助手研究
 
-基于开源项目搭建OJ系统，收集用户编程练习数据，二次开发，利用Java进行数据统计、用户行为分析，并使用微信小程序作为移动前端，进行数据可视化和互动，提供包括编程打卡、错题收集、习惯记录、任务计划等功能。
-
-[blog](./../wecode/)
+基于开源项目搭建OJ系统，收集用户编程练习数据，二次开发，利用Java进行数据统计、用户行为分析，并使用微信小程序作为移动前端，进行数据可视化和互动，提供包括编程打卡、错题收集、习惯记录、任务计划等功能。[blog](./../wecode/)
 
 ## 基于树莓派的生活垃圾智能分类系统
 
-负责基于迁移学习的垃圾识别分类算法实现，Web 交互式展示、电控通信以及树莓派部署
-
-[code](https://github.com/ifrozenwhale/raspberry-garbage-classfier)
+负责基于迁移学习的垃圾识别分类算法实现，Web 交互式展示、电控通信以及树莓派部署[code](https://github.com/ifrozenwhale/raspberry-garbage-classfier)
 
 ## 基于百度API的人脸分析和轻社交
 
 ### 前端基于 Vue 的实现
 
-基于百度API的人脸检测与分析，并语音播报。支持图片上传/即时拍照人脸特征分析展示，分析报告分享、发现、点赞、评论，用户关注、收藏等， 历史记录查询和编辑， 登录/未登录身份权限控制等。
-
-[code](https://github.com/ifrozenwhale/cquface-frontend)
+基于百度API的人脸检测与分析，并语音播报。支持图片上传/即时拍照人脸特征分析展示，分析报告分享、发现、点赞、评论，用户关注、收藏等， 历史记录查询和编辑， 登录/未登录身份权限控制等。[code](https://github.com/ifrozenwhale/cquface-frontend)
 
 ### 后端 [基于 Django 的实现](https://github.com/ifrozenwhale/cquface)
 
@@ -75,19 +59,13 @@
 
 ## **计算机网络** | Ethernet、IPv4 、udp 协议以及 IP-IP Tunnel 隧道协议实现
 
-在Linux上使用C语言在数据链路层上通信，实现IPv4和UDP协议以及应用层封装。包括各层数据的校验，IP 分片与重组，最后为两个用户聊天的形式。
+在Linux上使用C语言在数据链路层上通信，实现IPv4和UDP协议以及应用层封装。包括各层数据的校验，IP 分片与重组，最后为两个用户聊天的形式。[blog](./../ip-protocal/)
 
-[blog](./../ip-protocal/)
-
-## **编译原理** | 简单 C 语言子集的玩具编译器]
-
-[code](https://github.com/ifrozenwhale/Easy-C-Compiler)
+## **编译原理** | 简单 C 语言子集的玩具编译器][code](https://github.com/ifrozenwhale/Easy-C-Compiler)
 
 目标做一个编译器，生成汇编指令并运行，目前到语义分析阶段。
 
-已经实现的语法分析，支持全局变量声明定义，函数调用等常见的语法，语法分析基于 LL(1) 方案，自顶向下使用栈进行分析，生成一棵语法分析树
-
-[code](https://github.com/ifrozenwhale/Easy-C-Compiler)
+已经实现的语法分析，支持全局变量声明定义，函数调用等常见的语法，语法分析基于 LL(1) 方案，自顶向下使用栈进行分析，生成一棵语法分析树[code](https://github.com/ifrozenwhale/Easy-C-Compiler)
 
 ## [**数据库系统** | 简单关系数据库元数据管理器](https://github.com/ifrozenwhale/metadata-manager)
 
@@ -103,9 +81,7 @@
 
 ## 基于 Spark 的电影推荐和分析系统
 
-在完全分布式 Spark 平台上，分布式存储数据文件，利用 MongoDB 保存分析结果。基于 ALS 协同过滤进行用户电影推荐，通过 TF-IDF 调整标签权重，计算特征向量，基于内容推荐。搭建在线展示平台，交互式操作。
-
-[code](https://github.com/ifrozenwhale/bigdata-movie-recommend)
+在完全分布式 Spark 平台上，分布式存储数据文件，利用 MongoDB 保存分析结果。基于 ALS 协同过滤进行用户电影推荐，通过 TF-IDF 调整标签权重，计算特征向量，基于内容推荐。搭建在线展示平台，交互式操作。[code](https://github.com/ifrozenwhale/bigdata-movie-recommend)
 
 ## 最优化方法
 
