@@ -502,13 +502,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/share_drawing">https://github.com/ifrozenwhale/share_drawing</a></p>
-<h1 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h1><ol>
+                <h1 id="共享网络画板"><a href="#共享网络画板" class="headerlink" title="共享网络画板"></a>共享网络画板</h1><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/share_drawing">https://github.com/ifrozenwhale/share_drawing</a></p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ol>
 <li>客户端为 client 包下的 AppClient1 和 AppClient2</li>
 <li>服务端为 server 包下的 Server（默认配置了本地启动，端口号）</li>
 <li>其他类的 main 函数为测试函数</li>
 </ol>
-<h1 id="实现的功能"><a href="#实现的功能" class="headerlink" title="实现的功能"></a>实现的功能</h1><h2 id="基本图形与操作"><a href="#基本图形与操作" class="headerlink" title="基本图形与操作"></a>基本图形与操作</h2><ul>
+<h2 id="实现的功能"><a href="#实现的功能" class="headerlink" title="实现的功能"></a>实现的功能</h2><h3 id="基本图形与操作"><a href="#基本图形与操作" class="headerlink" title="基本图形与操作"></a>基本图形与操作</h3><ul>
 <li><p>任意曲线（Free Line）、圆点（Dot）、直线（Line）、矩形（Rectangle）、三角形（Triangle）</p>
 </li>
 <li><p>套索工具（Select）</p>
@@ -536,23 +536,23 @@
 <li><p>颜色填充（Fill）</p>
 </li>
 </ul>
-<h2 id="图层（非网络模式）"><a href="#图层（非网络模式）" class="headerlink" title="图层（非网络模式）"></a>图层（非网络模式）</h2><ul>
+<h3 id="图层（非网络模式）"><a href="#图层（非网络模式）" class="headerlink" title="图层（非网络模式）"></a>图层（非网络模式）</h3><ul>
 <li>图层选择区域，可以切换图层和图层显示</li>
 <li>图层创建和删除</li>
 <li>图层操作</li>
 </ul>
-<h2 id="重绘、清除"><a href="#重绘、清除" class="headerlink" title="重绘、清除"></a>重绘、清除</h2><ul>
+<h3 id="重绘、清除"><a href="#重绘、清除" class="headerlink" title="重绘、清除"></a>重绘、清除</h3><ul>
 <li>抹除（Remove）：可同时抹除一个或者多个图形</li>
 <li>清空（Clear）</li>
 <li>撤销（Undo）</li>
 <li>重做（Redo）</li>
 </ul>
-<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><ul>
+<h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><ul>
 <li>画板背景色（Background Color）</li>
 <li>默认线条颜色（Default Color）</li>
 <li>默认线条粗细（Default Stroke）</li>
 </ul>
-<h2 id="保存、导出、打开"><a href="#保存、导出、打开" class="headerlink" title="保存、导出、打开"></a>保存、导出、打开</h2><ul>
+<h3 id="保存、导出、打开"><a href="#保存、导出、打开" class="headerlink" title="保存、导出、打开"></a>保存、导出、打开</h3><ul>
 <li>保存设置（Global Configuration）<ul>
 <li>下次启动程序恢复已保存的全局设置</li>
 </ul>
@@ -572,11 +572,11 @@
 </ul>
 </li>
 </ul>
-<h2 id="同步绘图"><a href="#同步绘图" class="headerlink" title="同步绘图"></a>同步绘图</h2><ul>
+<h3 id="同步绘图"><a href="#同步绘图" class="headerlink" title="同步绘图"></a>同步绘图</h3><ul>
 <li>共享画板视图</li>
 <li>共享图形编辑权限</li>
 </ul>
-<h1 id="UI-界面"><a href="#UI-界面" class="headerlink" title="UI 界面"></a>UI 界面</h1><ul>
+<h2 id="UI-界面"><a href="#UI-界面" class="headerlink" title="UI 界面"></a>UI 界面</h2><ul>
 <li>主窗口</li>
 </ul>
 <p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image1.png" alt="主窗口"></p>
@@ -597,7 +597,7 @@
 <li>加入服务器时，输入服务器ip及端口号，格式为<code>xx.xx.xx.xx:xxxxx</code>。</li>
 <li>如果输入的服务器端口不对或者服务器未启动，则进行提示确认服务器运行；如果输入格式不正确，提示格式错误。</li>
 </ul>
-<h1 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h1><ol>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
 <li>free line 为任意线条，dot 为实心圆点，line 为直线，triangle 为等腰三角形，rectangle 为矩形。</li>
 <li>select 为套索工具，绘制矩形。可选中整个图形，可选中图形的顶点，可选中图形的边，可选中1个或者多个图形。</li>
 <li>move 为移动操作。select 选中图形后，以鼠标按下位置为起始点，拖动鼠标进行移动。</li>
@@ -614,7 +614,7 @@
 <li>登录时不加入服务器，选择新建画布，则生成空画板；否则选择 .shape 文件初始化画板图形。</li>
 <li>不加入服务器时，可以利用图层分层绘制图形并做一系列的修改。</li>
 </ol>
-<h1 id="类的关系"><a href="#类的关系" class="headerlink" title="类的关系"></a>类的关系</h1><p>Shape 作为数据的抽象基类，实现图形数据的公共方法，Rectangle 等子类完成各自的数据处理操作。</p>
+<h2 id="类的关系"><a href="#类的关系" class="headerlink" title="类的关系"></a>类的关系</h2><p>Shape 作为数据的抽象基类，实现图形数据的公共方法，Rectangle 等子类完成各自的数据处理操作。</p>
 <p>Graphics 类继承自 java.swingx.JPanel，作为画板，拥有 Shape 数据成员，调用 Shape 及其子类的方法，完成逻辑操作，同时显示图形。</p>
 <p>App类继承自 java.swingx.JFrame，作为主界面类，拥有一系列组件，包括 Graphics 显示图形。</p>
 <p>ErrorView 类继承自 JDialog，以对话框的形式提示。</p>
