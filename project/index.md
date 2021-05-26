@@ -16,31 +16,31 @@
 
 ## 经典小游戏
 
-### 扫雷 https://github.com/ifrozenwhale/classic_game/tree/mine_sweeping
+### 扫雷 [code](https://github.com/ifrozenwhale/classic_game/tree/mine_sweeping)
 
-### 贪吃蛇 https://github.com/ifrozenwhale/classic_game/tree/snake
+### 贪吃蛇  [code](https://github.com/ifrozenwhale/classic_game/tree/snake)
 
-### 五子棋 https://github.com/ifrozenwhale/classic_game/tree/gobang
+### 五子棋  [code](https://github.com/ifrozenwhale/classic_game/tree/gobang)
 
-### 计算器 https://github.com/ifrozenwhale/classic_game/tree/calculator
+### 计算器  [code](https://github.com/ifrozenwhale/classic_game/tree/calculator)
 
 ## ATM 模拟
 
 初学面向对象时，使用 C++ 完成的，基于命令行的ATM模拟程序的设计。实现了分类账户（存款、取款），转账，交易记录，限额，未读消息等功能，实现了接口分离。
 
-https://github.com/ifrozenwhale/Easy-ATM
+[code](https://github.com/ifrozenwhale/Easy-ATM)
 
 ## 基于 CAS 的单点登录系统
 
 基于 CAS （统一认证服务）流程，设计了自己的单点登录、登出系统。
 
-https://github.com/ifrozenwhale/JAVAEE_SSO
+[code](https://github.com/ifrozenwhale/JAVAEE_SSO)
 
 ## 基于 servlet 的 MVC 框架实现
 
 通过实现 IOC 容器，管理 Java Bean，使用 servlet 实现 GET/PUT 请求处理控制器，并提供 ModelView 模式或 Json 对象。
 
-https://github.com/ifrozenwhale/myspringmvc
+[code](https://github.com/ifrozenwhale/myspringmvc)
 
 # 科创与开发项目
 
@@ -54,7 +54,7 @@ https://github.com/ifrozenwhale/myspringmvc
 
 负责基于迁移学习的垃圾识别分类算法实现，Web 交互式展示、电控通信以及树莓派部署
 
-https://github.com/ifrozenwhale/raspberry-garbage-classfier
+[code](https://github.com/ifrozenwhale/raspberry-garbage-classfier)
 
 ## 基于百度API的人脸分析和轻社交
 
@@ -62,7 +62,7 @@ https://github.com/ifrozenwhale/raspberry-garbage-classfier
 
 基于百度API的人脸检测与分析，并语音播报。支持图片上传/即时拍照人脸特征分析展示，分析报告分享、发现、点赞、评论，用户关注、收藏等， 历史记录查询和编辑， 登录/未登录身份权限控制等。
 
-https://github.com/ifrozenwhale/cquface-frontend
+[code](https://github.com/ifrozenwhale/cquface-frontend)
 
 ### 后端 [基于 Django 的实现](https://github.com/ifrozenwhale/cquface)
 
@@ -81,13 +81,13 @@ https://github.com/ifrozenwhale/cquface-frontend
 
 ## **编译原理** | 简单 C 语言子集的玩具编译器]
 
-https://github.com/ifrozenwhale/Easy-C-Compiler
+[code](https://github.com/ifrozenwhale/Easy-C-Compiler)
 
 目标做一个编译器，生成汇编指令并运行，目前到语义分析阶段。
 
 已经实现的语法分析，支持全局变量声明定义，函数调用等常见的语法，语法分析基于 LL(1) 方案，自顶向下使用栈进行分析，生成一棵语法分析树
 
-https://github.com/ifrozenwhale/Easy-C-Compiler)
+[code](https://github.com/ifrozenwhale/Easy-C-Compiler)
 
 ## [**数据库系统** | 简单关系数据库元数据管理器](https://github.com/ifrozenwhale/metadata-manager)
 
@@ -105,7 +105,7 @@ https://github.com/ifrozenwhale/Easy-C-Compiler)
 
 在完全分布式 Spark 平台上，分布式存储数据文件，利用 MongoDB 保存分析结果。基于 ALS 协同过滤进行用户电影推荐，通过 TF-IDF 调整标签权重，计算特征向量，基于内容推荐。搭建在线展示平台，交互式操作。
 
-https://github.com/ifrozenwhale/bigdata-movie-recommend
+[code](https://github.com/ifrozenwhale/bigdata-movie-recommend)
 
 ## 最优化方法
 
