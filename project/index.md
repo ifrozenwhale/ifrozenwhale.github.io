@@ -4,15 +4,15 @@
 
 # 编程练习
 
-## 共享网络画板
+## **共享网络画板**
 
 一个网络画板，支持本地或者联机同步绘图，多种图形（任意曲线、圆点、直线、矩形、三角形），支持套索工具，样式填充、修改，形状调整、移动，支持 undo 与 redo，支持保存和导出图片等。[blog](http://frozenwhale.top/2021/05/26/gong-xiang-wang-luo-hua-ban/)
 
-## 文件管理器
+## **文件管理器**
 
 使用 Java 实现，支持文件树和文件列表，支持文件夹创建、删除、复制、粘贴、加密解密、压缩解压。[blog](http://frozenwhale.top/2021/05/26/file-manager/)
 
-## 经典小游戏
+## **经典小游戏**
 
 ### 扫雷 [code](https://github.com/ifrozenwhale/classic_game/tree/mine_sweeping)
 
@@ -22,11 +22,11 @@
 
 ### 计算器  [code](https://github.com/ifrozenwhale/classic_game/tree/calculator)
 
-## ATM 模拟
+## **ATM 模拟**
 
 初学面向对象时，使用 C++ 完成的，基于命令行的ATM模拟程序的设计。实现了分类账户（存款、取款），转账，交易记录，限额，未读消息等功能，实现了接口分离。[code](https://github.com/ifrozenwhale/Easy-ATM)
 
-## 基于 CAS 的单点登录系统
+## **基于 CAS 的单点登录系统**
 
 基于 CAS （统一认证服务）流程，设计了自己的单点登录、登出系统。[code](https://github.com/ifrozenwhale/JAVAEE_SSO)
 
@@ -36,15 +36,15 @@
 
 # 科创与开发项目
 
-## 基于数据挖掘的编程助手研究
+## **基于数据挖掘的编程助手研究**
 
 基于开源项目搭建OJ系统，收集用户编程练习数据，二次开发，利用Java进行数据统计、用户行为分析，并使用微信小程序作为移动前端，进行数据可视化和互动，提供包括编程打卡、错题收集、习惯记录、任务计划等功能。[blog](http://frozenwhale.top/2021/05/26/wecode/)
 
-## 基于树莓派的生活垃圾智能分类系统
+## **基于树莓派的生活垃圾智能分类系统**
 
 负责基于迁移学习的垃圾识别分类算法实现，Web 交互式展示、电控通信以及树莓派部署[code](https://github.com/ifrozenwhale/raspberry-garbage-classfier)
 
-## 基于百度API的人脸分析和轻社交
+## **基于百度API的人脸分析和轻社交**
 
 ### 前端基于 Vue 的实现
 
@@ -81,11 +81,11 @@
 
 # 大数据与机器学习
 
-## 基于 Spark 的电影推荐和分析系统
+## **基于 Spark 的电影推荐和分析系统**
 
 在完全分布式 Spark 平台上，分布式存储数据文件，利用 MongoDB 保存分析结果。基于 ALS 协同过滤进行用户电影推荐，通过 TF-IDF 调整标签权重，计算特征向量，基于内容推荐。搭建在线展示平台，交互式操作。[code](https://github.com/ifrozenwhale/bigdata-movie-recommend)
 
-## 最优化方法
+## **最优化方法**
 
 ### 单纯形
 
@@ -95,13 +95,13 @@
 
 求解约束优化问题。采用传统算法 PHR 算法。混合约束问题的乘子法，结合了拉格朗日乘子和罚函数，构造无约束的辅助函数。作为求解基础，还实现了求解无约束混合优化问题的 dpf 算法，一维搜索优化问题的黄金分割法。
 
-## 机器学习基础算法
+## **机器学习基础算法**
 
 ### 二分类与多分类 [Logistics 回归](https://github.com/ifrozenwhale/machine-learning-code/tree/master/exp1)
 
 ### 离散和连续 [决策树 |分类树与回归树）](https://github.com/ifrozenwhale/machine-learning-code/tree/master/exp2)
 
-## 大数据处理实验
+## **大数据处理实验**
 
 ### 准备工作 [数据清洗和预处理](https://github.com/ifrozenwhale/bigdata-homework/tree/master/lab1)
 
@@ -109,7 +109,7 @@
 
 ### 文本分析 [TF-IDF](https://github.com/ifrozenwhale/bigdata-homework/tree/master/lab3)
 
-## 数学建模
+## **数学建模**
 
 ### 网络建模 [音乐影响网络](https://github.com/ifrozenwhale/2021icm-problemD)
 
@@ -117,11 +117,11 @@
 
 # 其他
 
-## [不等圆的不重叠随机排列](https://github.com/ifrozenwhale/non-overlapping-circle)
+## **[不等圆的不重叠随机排列](https://github.com/ifrozenwhale/non-overlapping-circle)**
 
 不等圆的packing问题，基于概率策略化的随机游走。在缝隙处可额外进行补充，使更加丰满。
 
-## [自定义轮廓的随机纹路生成](https://github.com/ifrozenwhale/randomPicture)
+## **[自定义轮廓的随机纹路生成](https://github.com/ifrozenwhale/randomPicture)**
 
 体现了数学中的随机美。可以给出图形，在图形内基于 Voronoi 图生成随机纹路，可以进行颜色填充。
 
