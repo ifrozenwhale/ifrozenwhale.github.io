@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="网络协议封装, 沃若的森林">
+    <meta name="keywords" content="项目主页（部分）, 沃若的森林">
     <meta name="description" content="桑之未落，其叶沃若">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>网络协议封装 | 沃若的森林</title>
+    <title>项目主页（部分） | 沃若的森林</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/20210527014327.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/forest.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">网络协议封装</h1>
+                    <h1 class="description center-align post-title">项目主页（部分）</h1>
                 </div>
             </div>
         </div>
@@ -433,20 +433,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C</span>
+                            <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                <span class="chip bg-color">程序设计</span>
                             </a>
                         
-                            <a href="/tags/linux/">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/%E4%B8%93%E4%B8%9A%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">专业基础</span>
                             </a>
                         
-                            <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">网络</span>
-                            </a>
-                        
-                            <a href="/tags/socket/">
-                                <span class="chip bg-color">socket</span>
+                            <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                                <span class="chip bg-color">数模</span>
                             </a>
                         
                     </div>
@@ -484,14 +480,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    7 分
                 </div>
                 
 
@@ -506,122 +502,107 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/network-ipv4-udp">https://github.com/ifrozenwhale/network-ipv4-udp</a></p>
-<h1 id="网络协议封装"><a href="#网络协议封装" class="headerlink" title="网络协议封装"></a>网络协议封装</h1><p>在 Linux 上使用 C 语言在数据链路层上通信，实现Ethernet，IPv4 和 UDP 协议以及应用层封装。</p>
-<h2 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h2><p>文件目录结构如下</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── Makefile</span><br><span class="line">├── chat.c</span><br><span class="line">├── client.c</span><br><span class="line">├── myhdr.h</span><br><span class="line">├── utils.c</span><br><span class="line">└── utils.h</span><br><span class="line">1 directory, 6 files</span><br></pre></td></tr></tbody></table></figure>
-
-<ul>
-<li><code>Makefile</code>编译多文件。</li>
-<li><code>chat.c</code>，用于展示聊天的内容（只输出了最终发送和收到的结果）</li>
-<li><code>client.c</code>，用于展示帧的解析封装、分片等过程。</li>
-<li><code>myhdr.h</code>，定义了自己的IP头，UDP头，以及其他一些数据结构和常量值。</li>
-<li><code>utils.h</code>，声明了一些工具函数，主要有校验和计算，ip地址转换等。</li>
-<li><code>utils.c</code>，工具函数的实现。</li>
-</ul>
-<h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><h3 id="数据链路层（Ethernet-Frame）"><a href="#数据链路层（Ethernet-Frame）" class="headerlink" title="数据链路层（Ethernet Frame）"></a>数据链路层（Ethernet Frame）</h3><ol>
-<li>使用第一个project要求的帧结构<code>dst_mac(6) | src_mac(6) | protocal(2) | payload(46-1500) | fcs(4) </code>。</li>
-<li>fcs使用crc32算法进行计算，接收端如果校验失败抛出异常。</li>
-<li>payload长度不足46时，使用<code>bzero</code>进行0比特填充，长于1500则抛出异常。</li>
-</ol>
-<h3 id="网络层（IP-packet）"><a href="#网络层（IP-packet）" class="headerlink" title="网络层（IP packet）"></a>网络层（IP packet）</h3><ol>
-<li><p>使用自定义的固定的IPv4头（20字节）。</p>
-</li>
-<li><p>头检验和check使用16位半字相加取结果补码，接收端如果校验失败抛出异常。</p>
-</li>
-<li><p>IP分片</p>
-<p>发送时</p>
-<ul>
-<li>每一片都具有IP头，但是只有第一片有UDP头。</li>
-<li>偏移值offset使用8个字节作为偏移单位，因此每一片的长度为8的整数倍。</li>
-</ul>
-<p>接收时如如果MF（more frag)=1或者frag 0ff不为0表示分片</p>
-<ul>
-<li>MF=1并且 offset偏移0，为第一片</li>
-<li>MF=0，为最后一片</li>
-<li>其余情况，中间片</li>
-</ul>
-<p>根据IP的id进行分片重组。</p>
-</li>
-</ol>
-<h3 id="运输层（UDP-datagram）"><a href="#运输层（UDP-datagram）" class="headerlink" title="运输层（UDP datagram）"></a>运输层（UDP datagram）</h3><ol>
-<li>使用了自定义的UDP头（8字节）。</li>
-<li>UDP伪首部 、UDP首部 、UDP的数据一起计算校验和，接收端如果校验失败抛出异常。</li>
-</ol>
-<h3 id="应用层（Chat）"><a href="#应用层（Chat）" class="headerlink" title="应用层（Chat）"></a>应用层（Chat）</h3><ol>
-<li>使用多线程库，分别创建读线程和发线程，用于双向的聊天。</li>
-<li>输出解析后的MAC帧结构信息、IP Packet结构信息，UDP datagram结构信息。</li>
-</ol>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
-<li>对于非unsigned char类型，使用<code>htons</code>和<code>ntohs</code>进行网络字节序的转化。</li>
-<li>使用<code>raw socket</code>进行数据链路层的通信。</li>
-</ol>
-<h1 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h1><h2 id="运行环境说明"><a href="#运行环境说明" class="headerlink" title="运行环境说明"></a>运行环境说明</h2><ul>
-<li><p>使用了<code>raw socket</code>在linux环境中运行。这里使用了<code>Windows Subsystem for Linux(WSL)</code>作为linux环境。</p>
-</li>
-<li><p>需要修改<code>client.c</code>或者<code>chat.c</code>中前面定义的<code>dst_mac</code>数组为要发送的mac地址。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mac_addr dst_mac = {<span class="number">0x00</span>, <span class="number">0x15</span>, <span class="number">0x5d</span>, <span class="number">0xda</span>, <span class="number">0x50</span>, <span class="number">0x66</span>};  <span class="comment">// dst MAC 地址</span></span><br></pre></td></tr></tbody></table></figure></li>
-<li><p>编写了Makefile，用于编译多文件。Makefile文件内容如下：</p>
-<figure class="highlight makefile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">project: client.c chat.c utils.o # 编译整个工程所有的文件</span></span><br><span class="line">	gcc utils.o client.c -o client -lpthread</span><br><span class="line">	gcc utils.o chat.c -o chat -lpthread</span><br><span class="line">	gcc -c utils.c </span><br><span class="line"><span class="section">clientrun: client.c utils.c # 编译详细输出内容的程序，并运行</span></span><br><span class="line">	gcc -c utils.c</span><br><span class="line">	gcc utils.o client.c -o client -lpthread</span><br><span class="line">	sudo ./client</span><br><span class="line"><span class="section">chatrun: chat.c utils.c # 编译用于测试聊天的程序，并运行</span></span><br><span class="line">	gcc -c utils.c</span><br><span class="line">	gcc utils.o  chat.c -o chat -lpthread</span><br><span class="line">	sudo ./chat </span><br><span class="line"><span class="section">clean: # 清除所有的文件</span></span><br><span class="line">	rm client</span><br><span class="line">	rm chat</span><br><span class="line">	rm utils.o</span><br></pre></td></tr></tbody></table></figure></li>
-</ul>
-<h2 id="聊天形式（只显示数据内容）"><a href="#聊天形式（只显示数据内容）" class="headerlink" title="聊天形式（只显示数据内容）"></a>聊天形式（只显示数据内容）</h2><p>（仅用于测试）发送端和接收端为同一个MAC地址</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make chatrun</span><br></pre></td></tr></tbody></table></figure>
-
-<ol>
-<li><p>分别在两个终端执行上述命令，启动程序</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226130034525.png" alt="image-20201226130034525"></p>
-</li>
-<li><p>两个终端互发消息，如下：</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226130341408.png" alt="image-20201226130341408"></p>
-</li>
-</ol>
-<h2 id="帧的解析和封装体现"><a href="#帧的解析和封装体现" class="headerlink" title="帧的解析和封装体现"></a>帧的解析和封装体现</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clientrun</span><br></pre></td></tr></tbody></table></figure>
-
-<ol>
-<li><p>短消息互发（不分片）</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226131056879.png" alt="image-20201226131056879"></p>
-</li>
-<li><p>长消息（分片，MTU设置为44，即有效数据长度为44-20=24）</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226131246044.png" alt="image-20201226131246044"></p>
-<p><code>My name is Tian Runze, and who are you? </code>长度为41，被分为3片。在最后一片中被正确的组装。</p>
-<p>回复消息，<code>Wow, I am Tian Runze, too!hhh</code>，长度为31，被分为2片，最后一片被正确组装打印出来。</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226131735408.png" alt="image-20201226131735408"></p>
-</li>
-</ol>
-<h2 id="抓包测试"><a href="#抓包测试" class="headerlink" title="抓包测试"></a>抓包测试</h2><blockquote>
-<p>由于前两组发消息，都是发往了本机MAC，因此并不能被wireshark抓包抓到。这里使用修改dst mac addr。<br>（仅用于测试）发送端和接收端为不同MAC地址。</p>
+                <h1 id="程序设计-开发项目-专业实践-数据科学"><a href="#程序设计-开发项目-专业实践-数据科学" class="headerlink" title="程序设计 | 开发项目 | 专业实践 | 数据科学"></a>程序设计 | 开发项目 | 专业实践 | 数据科学</h1><blockquote>
+<p>Github 地址 <a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale">ifrozenwhale</a></p>
 </blockquote>
-<ol>
-<li><p>短消息</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226132414865.png" alt="image-20201226132414865"></p>
-<p>被正确的解析为UDP协议</p>
-</li>
-<li><p>长消息，被分为3片，且成功被wireshark解析到。</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226132758462.png" alt="image-20201226132758462"></p>
-</li>
-</ol>
-<h2 id="调试信息"><a href="#调试信息" class="headerlink" title="调试信息"></a>调试信息</h2><h3 id="MAC地址、协议过滤"><a href="#MAC地址、协议过滤" class="headerlink" title="MAC地址、协议过滤"></a>MAC地址、协议过滤</h3><ol>
-<li><p>在网卡模式为混杂模式下，会发现有许多发往非本机MAC的帧被监听到，因此可以首先使用MAC地址进行过滤，只捕捉发往本机MAC地址的帧。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据MAC地址过滤，只读取发往本地MAC的帧</span></span><br><span class="line"><span class="keyword">int</span> eq = mac_equal(dst_mac, my_mac);</span><br><span class="line"><span class="keyword">if</span> (!eq) {</span><br><span class="line">    <span class="comment">// 取消以下注释，输出发往非本机MAC帧的MAC地址</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"[NOTE]: not frame to local. To "</span>);</span><br><span class="line">    output_mac(dst_mac);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><h3 id="共享网络画板"><a href="#共享网络画板" class="headerlink" title="共享网络画板"></a>共享网络画板</h3><p>一个网络画板，支持本地或者联机同步绘图，多种图形（任意曲线、圆点、直线、矩形、三角形），支持套索工具，样式填充、修改，形状调整、移动，支持 undo 与 redo，支持保存和导出图片等。</p>
+<p><a href="../gong-xiang-wang-luo-hua-ban/">blog</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/1587700600198.png" alt="画板主页"></p>
+<h3 id="文件管理器"><a href="#文件管理器" class="headerlink" title="文件管理器"></a>文件管理器</h3><p>使用 Java 实现，支持文件树和文件列表，支持文件夹创建、删除、复制、粘贴、加密解密、压缩解压。</p>
+<p><a href="../file-manager">blog</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/1588229853020.png" alt="文件主页"></p>
+<h3 id="经典小游戏"><a href="#经典小游戏" class="headerlink" title="经典小游戏"></a>经典小游戏</h3><h4 id="扫雷"><a href="#扫雷" class="headerlink" title="扫雷"></a>扫雷</h4><p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/classic_game/tree/mine_sweeping">code</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210526234849586.png" alt="扫雷界面"></p>
+<h4 id="贪吃蛇"><a href="#贪吃蛇" class="headerlink" title="贪吃蛇"></a>贪吃蛇</h4><p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/classic_game/tree/snake">code</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210526234753427.png" alt="贪吃蛇结束游戏"></p>
+<h4 id="五子棋"><a href="#五子棋" class="headerlink" title="五子棋"></a>五子棋</h4><p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/classic_game/tree/gobang">code</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210526234821000.png" alt="五子棋游戏"></p>
+<h4 id="计算器"><a href="#计算器" class="headerlink" title="计算器"></a>计算器</h4><p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/classic_game/tree/calculator">code</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210526234715487.png" alt="栈计算器"></p>
+<h3 id="ATM-模拟"><a href="#ATM-模拟" class="headerlink" title="ATM 模拟"></a>ATM 模拟</h3><p>初学面向对象时，使用 C++ 完成的，基于命令行的ATM模拟程序的设计。</p>
+<p>实现了分类账户（存款、取款），转账，交易记录，限额，未读消息等功能，实现了接口分离。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/Easy-ATM">code</a></p>
+<h3 id="基于-CAS-的单点登录系统"><a href="#基于-CAS-的单点登录系统" class="headerlink" title="基于 CAS 的单点登录系统"></a>基于 CAS 的单点登录系统</h3><p>基于 CAS （统一认证服务）流程，设计了自己的单点登录、登出系统。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/JAVAEE_SSO">code</a></p>
+<h3 id="基于-servlet-的-MVC-框架实现"><a href="#基于-servlet-的-MVC-框架实现" class="headerlink" title="基于 servlet 的 MVC 框架实现"></a>基于 servlet 的 MVC 框架实现</h3><p>通过实现 IOC 容器，管理 Java Bean，使用 servlet 实现 GET/PUT 请求处理控制器，并提供 ModelView 模式或 Json 对象。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/myspringmvc">https://github.com/ifrozenwhale/myspringmvc</a></p>
+<p>使用自己的 MVC 框架，编写应用程序。</p>
+<p>返回 JSP 页面的示例：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyController</span></span><br><span class="line"><span class="meta">@MyRequestMapping("/app")</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppController</span> </span>{</span><br><span class="line">    <span class="comment">// 自动依赖注入</span></span><br><span class="line">    <span class="meta">@MyAutowired</span></span><br><span class="line">    <span class="keyword">private</span> AppService appService;</span><br><span class="line">    <span class="meta">@MyAutowired</span></span><br><span class="line">    <span class="keyword">private</span> BookService bookService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@MyRequestMapping(value = "/bookpage", method="POST")</span> <span class="comment">// POST 方法 </span></span><br><span class="line">    <span class="meta">@ResponseView</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MyModelView <span class="title">addBook</span><span class="params">(<span class="meta">@MyRequestParam("id")</span> String id, <span class="meta">@MyRequestParam("title")</span> String title, <span class="meta">@MyRequestParam("author")</span> String author)</span></span>{</span><br><span class="line">        MyModelView mv = <span class="keyword">new</span> MyModelView();</span><br><span class="line">        <span class="comment">// Model And View 模式</span></span><br><span class="line">        bookService.addBook(Integer.parseInt(id), title, author);</span><br><span class="line">		 <span class="comment">// Jsp view name</span></span><br><span class="line">        mv.setView(<span class="string">"bookinfo"</span>);</span><br><span class="line">        mv.addModel(<span class="string">"bookList"</span>, bookService.getAllBooks());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> mv;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@MyRequestMapping(value = "/bookpage", method = "GET")</span> <span class="comment">// GET 方法 </span></span><br><span class="line">    <span class="meta">@ResponseView</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MyModelView <span class="title">showBookPage</span><span class="params">()</span></span>{</span><br><span class="line">        MyModelView modelView = <span class="keyword">new</span> MyModelView();</span><br><span class="line">        List&lt;Book&gt; bookList = bookService.getAllBooks();</span><br><span class="line">        modelView.setView(<span class="string">"bookinfo"</span>);</span><br><span class="line">        modelView.addModel(<span class="string">"bookList"</span>, bookList);</span><br><span class="line">        <span class="keyword">return</span> modelView;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226135934272.png" alt="image-20201226135934272"></p>
-</li>
-<li><p>过滤掉发往非本机MAC的帧，发现仍有部分帧，但是这些帧的FCS校验错误。（没有具体探讨原因，程序运行在windows的子系统linux内核中，不清楚这些帧的来源和结构、协议）</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226140122349.png" alt="image-20201226140122349"></p>
-</li>
-<li><p>因此，实际检测自己的封装和解析的时候，通过自定义了protocol类型来过滤。这里使用学号的尾号4376来进行过滤。只监听自己实现的封装的帧。</p>
-</li>
-</ol>
-<h3 id="校验和测试"><a href="#校验和测试" class="headerlink" title="校验和测试"></a>校验和测试</h3><p>由于实际发帧的时候很少出错，因此可以通过强制出错的方式来检测FCS校验等。</p>
-<h4 id="Mac-Frame出错"><a href="#Mac-Frame出错" class="headerlink" title="Mac Frame出错"></a>Mac Frame出错</h4><p>修改<code>myhdr.h</code>中的宏定义<code>ERROR_TAKEN</code>为1，即可强制MAC帧出错。</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226140937442.png" alt="image-20201226140937442"></p>
-<h3 id="IP-packet-出错"><a href="#IP-packet-出错" class="headerlink" title="IP packet 出错"></a>IP packet 出错</h3><p>为了检测IP的校验和，修改<code>myhdr.h</code>中的宏定义<code>ERROR_TAKEN</code>为2，即可强制IP packet出错（但是此时MAC帧也是错的），这里仅为了测试，MAC帧出错时忽略（以模拟帧FCS没有校验出错误的情况）。</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226141728968.png" alt="image-20201226141728968"></p>
-<h3 id="UDP-Datagram-出错"><a href="#UDP-Datagram-出错" class="headerlink" title="UDP Datagram 出错"></a>UDP Datagram 出错</h3><p>为了检测UDP的校验和，修改<code>myhdr.h</code>中的宏定义<code>ERROR_TAKEN</code>为2，即可强制UDP datagram出错（但是此时MAC帧也是错的），这里仅为了测试，MAC帧出错时忽略（以模拟帧FCS没有校验出错误的情况）。</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226142036807.png" alt="image-20201226142036807"></p>
-<p>以上，所有的功能和测试均实现。</p>
-<h3 id="Git管理"><a href="#Git管理" class="headerlink" title="Git管理"></a>Git管理</h3><p>使用了git进行版本管理，从帧的封装开始，到IP封装、UDP封装，然后做UDP的校验，IP分片重组，最后做多线程的聊天应用。</p>
-<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226143057640.png" alt="image-20201226143057640"></p>
+<p>提供 Restful API，返回 Json 对象的示例：</p>
+<figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MyController</span></span><br><span class="line"><span class="meta">@MyRequestMapping("/api")</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RestController</span> </span>{</span><br><span class="line">    <span class="meta">@MyAutowired</span></span><br><span class="line">    <span class="keyword">private</span> BookService bookService;</span><br><span class="line">    <span class="meta">@MyRequestMapping(value = "/book", method = "GET")</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Book <span class="title">getBook</span><span class="params">(<span class="meta">@MyRequestParam("id")</span> String sid)</span></span>{</span><br><span class="line">        <span class="keyword">int</span> id = Integer.parseInt(sid);</span><br><span class="line">        <span class="keyword">return</span> bookService.getBookById(id);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="meta">@MyRequestMapping(value = "/book", method = "POST")</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RestModel <span class="title">addBook</span><span class="params">(<span class="meta">@MyRequestParam("id")</span> String id, <span class="meta">@MyRequestParam("title")</span> String title, <span class="meta">@MyRequestParam("author")</span> String author)</span></span>{</span><br><span class="line">        bookService.addBook(Integer.parseInt(id), title, author);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> RestModel(<span class="number">200</span>, <span class="string">"ok"</span>, <span class="keyword">null</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="科创与开发项目"><a href="#科创与开发项目" class="headerlink" title="科创与开发项目"></a>科创与开发项目</h2><h3 id="基于数据挖掘的编程助手研究"><a href="#基于数据挖掘的编程助手研究" class="headerlink" title="基于数据挖掘的编程助手研究"></a>基于数据挖掘的编程助手研究</h3><p>基于开源项目搭建OJ系统，收集用户编程练习数据，二次开发，利用Java进行数据统计、用户行为分析，并使用微信小程序作为移动前端，进行数据可视化和互动，提供包括编程打卡、错题收集、习惯记录、任务计划等功能。</p>
+<p><a href="../wecode/">blog</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527004206446.png" alt="今天你打卡了吗"></p>
+<h3 id="基于树莓派的生活垃圾智能分类系统"><a href="#基于树莓派的生活垃圾智能分类系统" class="headerlink" title="基于树莓派的生活垃圾智能分类系统"></a><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/raspberry-garbage-classfier">基于树莓派的生活垃圾智能分类系统</a></h3><p>整个项目由机械结构、电控、识别和展示四个部分构成，自己主要负责识别和展示，以及和电控的通信。电控部分主要是基于arduino，识别和展示基于树莓派4。</p>
+<p>使用 keras 做了InceptionV3/mobile_net 的迁移学习，冻结了全连接层之前的所有层，主要基于华为云垃圾分类大赛的数据集重新训练全连接层。事实上，因为比赛涉及的垃圾种类并不多，也比较正常，这样的训练效率、准确率都挺高的。</p>
+<p>考虑到树莓派的性能以及比赛的需求，并没有采用对视频流实时进行识别，而是手动设置视频采样频率，定时拍照分析。</p>
+<p>做了较多的交互式展示：</p>
+<ul>
+<li> 宣传视频播放和自动切换</li>
+<li> 视频照片采集可视化</li>
+<li> 垃圾分类结果显示</li>
+<li> 历史识别记录</li>
+<li> 垃圾桶满载显示</li>
+</ul>
+<p>启动web并启动摄像头后，摄像头会实时进行照片采集，并请求后端的图像识别分类 API，得到分类结果，如果结果非空，表示有垃圾待分类。如果此时位于宣传片播放界面，则切换到垃圾分类界面；否则直接显示垃圾分类结果。</p>
+<p>后端将web服务、分类算法、电控通信集成在了一起。</p>
+<ul>
+<li>通过 socketio 和浏览器建立长连接，用于推送结束信号/满载信号；</li>
+<li>提供垃圾分类 API，返回垃圾分类结果和当前垃圾数量</li>
+<li>使用多线程，监听和 arduino 的串口 USB 通信</li>
+<li>使用内存数据库 Redis，解决global 变量在多线程中的不一致问题。</li>
+</ul>
+<h3 id="基于百度API的人脸分析和轻社交"><a href="#基于百度API的人脸分析和轻社交" class="headerlink" title="基于百度API的人脸分析和轻社交"></a>基于百度API的人脸分析和轻社交</h3><p><a href="../cquface/">blog</a></p>
+<p>基于百度API的人脸检测与分析，并语音播报。支持图片上传/即时拍照人脸特征分析展示，分析报告分享、发现、点赞、评论，用户关注、收藏等， 历史记录查询和编辑， 登录/未登录身份权限控制等。</p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E8%AF%A6%E6%83%85.png" alt="分析页面"></p>
+<h2 id="课程实践"><a href="#课程实践" class="headerlink" title="课程实践"></a>课程实践</h2><h3 id="组成原理-体系结构-5级流水线多周期-CPU-的实现"><a href="#组成原理-体系结构-5级流水线多周期-CPU-的实现" class="headerlink" title="组成原理/体系结构 | 5级流水线多周期 CPU 的实现"></a><strong>组成原理/体系结构</strong> | 5级流水线多周期 CPU 的实现</h3><p>使用Verilog实现了一个拥有五级流水线的MIPS CPU，包含基本指令和异常处理在内的57条<br>指令。实现了写回策略，四路组相连、伪LRU替换策略的cache缓存。</p>
+<h3 id="计算机网络-Ethernet、IPv4-、udp-协议以及-IP-IP-Tunnel-隧道协议实现"><a href="#计算机网络-Ethernet、IPv4-、udp-协议以及-IP-IP-Tunnel-隧道协议实现" class="headerlink" title="计算机网络 | Ethernet、IPv4 、udp 协议以及 IP-IP Tunnel 隧道协议实现"></a><strong>计算机网络</strong> | Ethernet、IPv4 、udp 协议以及 IP-IP Tunnel 隧道协议实现</h3><p>在Linux上使用C语言在数据链路层上通信，实现IPv4和UDP协议以及应用层封装。包括各层数据的校验，IP 分片与重组，最后为两个用户聊天的形式。</p>
+<p><a href="../ip-protocal/">blog</a></p>
+<h3 id="编译原理-简单-C-语言子集的玩具编译器"><a href="#编译原理-简单-C-语言子集的玩具编译器" class="headerlink" title="编译原理 | 简单 C 语言子集的玩具编译器]"></a><strong>编译原理</strong> | 简单 C 语言子集的玩具编译器]</h3><p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/Easy-C-Compiler">code</a></p>
+<p>目标做一个编译器，生成汇编指令并运行，目前到语义分析阶段。</p>
+<p>已经实现的语法分析，支持全局变量声明定义，函数调用等常见的语法，语法分析基于 LL(1) 方案，自顶向下使用栈进行分析，生成一棵语法分析树，例如：</p>
+<p>​    <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210507025150612.png" alt="语法分析树"></p>
+<h3 id="数字逻辑-实验和课程设计"><a href="#数字逻辑-实验和课程设计" class="headerlink" title="数字逻辑 | 实验和课程设计"></a><strong>数字逻辑</strong> | 实验和课程设计</h3><ul>
+<li><strong>存储器设计</strong>：包括单、双端的 RAM，以及 FIFO 阵列。<a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/digital-logic/tree/master/memory">code</a></li>
+<li><strong>状态机设计</strong>：摩尔状态机序列检测器。<a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/digital-logic/tree/master/sequence_detection">code</a></li>
+<li><strong>密码锁：</strong>实现一个电子密码锁，也需要在 FPGA 上进行实际验证。<a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/digital-logic/tree/master/project_lock">code</a></li>
+</ul>
+<h2 id="大数据与机器学习"><a href="#大数据与机器学习" class="headerlink" title="大数据与机器学习"></a>大数据与机器学习</h2><h3 id="基于-Spark-的电影推荐和分析系统"><a href="#基于-Spark-的电影推荐和分析系统" class="headerlink" title="基于 Spark 的电影推荐和分析系统"></a>基于 Spark 的电影推荐和分析系统</h3><p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/bigdata-movie-recommend">部分 code</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527020001148.png" alt="热度日历图"></p>
+<ul>
+<li>收集 MovieLens 数据集，包含16万个电影，2400万条评分，67万条评价标签，将csv文件上传到完全分布式HDFS文件系统</li>
+<li>scala、spark 读取 HDFS 文件，整理导入 MongoDB 数据库</li>
+<li>MongoDB中加载数据，利用 sparkRdd 统计热门电影、高分电影，统计分年月、分类别的热门、高分电影数据</li>
+<li>基于 ALS 协同过滤算法，得到用户电影推荐和相似电影推荐</li>
+<li>通过 TF-IDF算法对标签的权重进行调，计算电影的内容特征向量，实现基于内容的电影推荐</li>
+<li>使用 python、pymongo 和 matplotlib，读取 MongoDB 数据并进行可视化</li>
+<li>使用 python 实现 SVD 奇异值分解进行电影推荐</li>
+<li>Python flask 构建后端数据服务，vue 构建前端页面，交互式展示数据。</li>
+<li>使用 VUE 前端框架与 Flask 后端框架进行结果可视化平台搭建</li>
+</ul>
+<h3 id="机器学习与优化方法"><a href="#机器学习与优化方法" class="headerlink" title="机器学习与优化方法"></a>机器学习与优化方法</h3><ul>
+<li>二分类与多分类 <a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/machine-learning-code/tree/master/exp1">Logistics 回归</a></li>
+<li>离散和连续 <a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/machine-learning-code/tree/master/exp2">决策树 |分类树与回归树</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/Optimization_algorithm/blob/master/simplex_method">单纯形法</a>（大 M 法，对偶单纯形）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/Optimization_algorithm/blob/master/phr">PHR 算法</a>(PHR 算法、无约束混合优化问题的 dfp 算法，一维搜索优化问题的黄金分割法)</li>
+</ul>
+<h3 id="大数据处理实验"><a href="#大数据处理实验" class="headerlink" title="大数据处理实验"></a>大数据处理实验</h3><ul>
+<li>准备工作 <a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/bigdata-homework/tree/master/lab1">数据清洗和预处理</a></li>
+<li>推荐算法 <a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/bigdata-homework/tree/master/lab2">SVD 奇异值分解</a></li>
+<li>文本分析 <a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/bigdata-homework/tree/master/lab3">TF-IDF</a></li>
+</ul>
+<h2 id="数学建模"><a href="#数学建模" class="headerlink" title="数学建模"></a>数学建模</h2><h3 id="网络建模-音乐影响网络"><a href="#网络建模-音乐影响网络" class="headerlink" title="网络建模 音乐影响网络"></a>网络建模 <a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/2021icm-problemD">音乐影响网络</a></h3><p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210309014544899.png" alt="音乐影响子网"></p>
+<h3 id="元胞自动机-计算机模拟-卢浮宫计算模拟"><a href="#元胞自动机-计算机模拟-卢浮宫计算模拟" class="headerlink" title="元胞自动机 | 计算机模拟 卢浮宫计算模拟"></a>元胞自动机 | 计算机模拟 <a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/2019icm-problemD">卢浮宫计算模拟</a></h3><p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527021429093.png" alt="疏散模拟"></p>
+<h3 id="不等圆的不重叠随机排列"><a href="#不等圆的不重叠随机排列" class="headerlink" title="不等圆的不重叠随机排列"></a>不等圆的不重叠随机排列</h3><p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/non-overlapping-circle">code</a></p>
+<p>不等圆的packing问题，基于概率策略化的随机游走。在缝隙处可额外进行补充，使更加丰满。</p>
+<p> <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527003719354.png" alt="七彩球鲸鱼"></p>
+<h3 id="自定义轮廓的随机纹路生成"><a href="#自定义轮廓的随机纹路生成" class="headerlink" title="自定义轮廓的随机纹路生成"></a>自定义轮廓的随机纹路生成</h3><p>体现了数学中的随机美。可以给出图形，在图形内基于 Voronoi 图生成随机纹路，可以进行颜色填充。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/randomPicture">code</a></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/color_whale.png" alt="五彩鲸鱼"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/voronoi%E9%B2%B8%E9%B1%BC.png"></p>
 
                 
             </div>
@@ -648,7 +629,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://frozenwhale.top/2021/05/27/ip-protocal/">http://frozenwhale.top/2021/05/27/ip-protocal/</a>
+                    <a href="http://frozenwhale.top/xiang-mu/xiang-mu-zhu-ye/">http://frozenwhale.top/xiang-mu/xiang-mu-zhu-ye/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -686,20 +667,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C</span>
+                                <a href="/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+                                    <span class="chip bg-color">程序设计</span>
                                 </a>
                             
-                                <a href="/tags/linux/">
-                                    <span class="chip bg-color">linux</span>
+                                <a href="/tags/%E4%B8%93%E4%B8%9A%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">专业基础</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">网络</span>
-                                </a>
-                            
-                                <a href="/tags/socket/">
-                                    <span class="chip bg-color">socket</span>
+                                <a href="/tags/%E6%95%B0%E6%A8%A1/">
+                                    <span class="chip bg-color">数模</span>
                                 </a>
                             
                         </div>
@@ -745,73 +722,11 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/2021/05/27/ip-protocal/">
-                    <div class="card-image">
-                        
-                        <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/20210527014327.png" class="responsive-img" alt="网络协议封装">
-                        
-                        <span class="card-title">网络协议封装</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            在 Linux 上使用 C 语言在数据链路层上通信，实现Ethernet，IPv4 和 UDP 协议以及应用层封装。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C</span>
-                    </a>
-                    
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">网络</span>
-                    </a>
-                    
-                    <a href="/tags/socket/">
-                        <span class="chip bg-color">socket</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/27/cquface/">
+                <a href="/xiang-mu/cquface/">
                     <div class="card-image">
                         
                         <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/20210527013049.png" class="responsive-img" alt="CQU-Face">
@@ -826,9 +741,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-27
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -854,6 +769,62 @@
                     
                     <a href="/tags/%E5%89%8D%E7%AB%AF/">
                         <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/xiang-mu/wecode/">
+                    <div class="card-image">
+                        
+                        <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/20210526235205.png" class="responsive-img" alt="编程助手">
+                        
+                        <span class="card-title">编程助手</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            基于开源项目搭建OJ系统，收集用户编程练习数据，二次开发，利用Java进行数据统计、用户行为分析，并使用微信小程序作为移动前端，进行数据可视化和互动，提供包括编程打卡、错题收集、习惯记录、任务计划等功能。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    项目
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/GUI/">
+                        <span class="chip bg-color">GUI</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">网络</span>
                     </a>
                     
                 </div>
