@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-30
+                    2021-06-01
                 </div>
                 
 
@@ -612,12 +612,14 @@
 <p>基于百度API的人脸检测与分析，并语音播报。支持图片上传/即时拍照人脸特征分析展示，分析报告分享、发现、点赞、评论，用户关注、收藏等， 历史记录查询和编辑， 登录/未登录身份权限控制等。</p>
 <p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/%E8%AF%A6%E6%83%85.png" alt="分析页面"></p>
 <h2 id="课程实践"><a href="#课程实践" class="headerlink" title="课程实践"></a>课程实践</h2><h3 id="组成原理-体系结构-5级流水线多周期-CPU-的实现"><a href="#组成原理-体系结构-5级流水线多周期-CPU-的实现" class="headerlink" title="组成原理/体系结构 | 5级流水线多周期 CPU 的实现"></a><strong>组成原理/体系结构</strong> | 5级流水线多周期 CPU 的实现</h3><p>使用Verilog实现了一个拥有五级流水线的MIPS CPU，包含基本指令和异常处理在内的57条<br>指令。实现了写回策略，四路组相连、伪LRU替换策略的cache缓存。</p>
-<h3 id="计算机网络-Ethernet、IPv4-、udp-协议以及-IP-IP-Tunnel-隧道协议实现"><a href="#计算机网络-Ethernet、IPv4-、udp-协议以及-IP-IP-Tunnel-隧道协议实现" class="headerlink" title="计算机网络 | Ethernet、IPv4 、udp 协议以及 IP-IP Tunnel 隧道协议实现"></a><strong>计算机网络</strong> | Ethernet、IPv4 、udp 协议以及 IP-IP Tunnel 隧道协议实现</h3><p>在Linux上使用C语言在数据链路层上通信，实现IPv4和UDP协议以及应用层封装。包括各层数据的校验，IP 分片与重组，最后为两个用户聊天的形式。</p>
+<h3 id="计算机网络-网络（隧道）协议实现"><a href="#计算机网络-网络（隧道）协议实现" class="headerlink" title="计算机网络 | 网络（隧道）协议实现"></a><strong>计算机网络</strong> | 网络（隧道）协议实现</h3><p>在Linux上使用C语言在数据链路层上通信，实现Ethernet、IPv4和UDP协议以及应用层封装。包括各层数据的校验，IP 分片与重组，最后为两个用户聊天的形式。</p>
 <p><a href="../ip-protocal/">blog</a></p>
 <h3 id="编译原理-简单-C-语言子集的玩具编译器"><a href="#编译原理-简单-C-语言子集的玩具编译器" class="headerlink" title="编译原理 | 简单 C 语言子集的玩具编译器]"></a><strong>编译原理</strong> | 简单 C 语言子集的玩具编译器]</h3><p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/Easy-C-Compiler">code</a></p>
-<p>目标做一个编译器，生成汇编指令并运行，目前到语义分析阶段。</p>
-<p>已经实现的语法分析，支持全局变量声明定义，函数调用等常见的语法，语法分析基于 LL(1) 方案，自顶向下使用栈进行分析，生成一棵语法分析树，例如：</p>
+<p>目标实现一个简单 C 语言子集的编译器，生成汇编指令并运行，目前到语义分析阶段。</p>
+<p>已经实现的语法分析，支持全局变量声明定义，函数调用等常见的语法，语法分析基于 LL(1) 方案，自顶向下使用栈进行分析，生成一棵语法分析树。</p>
+<p>完成了部分语义分析，定义了包括函数在内的 7 种常见的语义错误，以及表达式计算。</p>
 <p>​    <img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210507025150612.png" alt="语法分析树"></p>
+<p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210601020342843.png" alt="语义分析"></p>
 <h3 id="数字逻辑-实验和课程设计"><a href="#数字逻辑-实验和课程设计" class="headerlink" title="数字逻辑 | 实验和课程设计"></a><strong>数字逻辑</strong> | 实验和课程设计</h3><ul>
 <li><strong>存储器设计</strong>：包括单、双端的 RAM，以及 FIFO 阵列。<a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/digital-logic/tree/master/memory">code</a></li>
 <li><strong>状态机设计</strong>：摩尔状态机序列检测器。<a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/digital-logic/tree/master/sequence_detection">code</a></li>
@@ -846,7 +848,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基于开源项目搭建OJ系统，收集用户编程练习数据，二次开发，利用Java进行数据统计、用户行为分析，并使用微信小程序作为移动前端，进行数据可视化和互动，提供包括编程打卡、错题收集、习惯记录、任务计划等功能。
+                            基于开源项目搭建OJ系统，收集用户编程练习数据，二次开发，利用Java进行数据统计、用户行为分析，并使用微信小程序作为移动前端，进行数据可视化和互动，提供包括编程打卡、错题收集、推荐、习惯记录、任务计划等功能。
                         
                     </div>
                     <div class="publish-info">
