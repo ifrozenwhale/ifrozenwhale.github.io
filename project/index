@@ -1,0 +1,213 @@
+###### <sub>项目简介</sub><br />个人项目<br />──<br /><sup>2021年5月27日</sup><br />`github@ifrozenwhale`<br /><br />**重庆大学-田润泽**<br />*重庆大学*
+
+[toc]
+
+
+
+> 程序设计 | 科创开发 | 专业实践 | 数据科学
+>
+> Github 地址 [ifrozenwhale](https://github.com/ifrozenwhale)
+>
+> 个人博客 地址 [blog](http://frozenwhale.top)
+
+# 程序设计
+
+## 共享网络画板
+
+一个网络画板，支持本地或者联机同步绘图，多种图形（任意曲线、圆点、直线、矩形、三角形），支持套索工具，样式填充、修改，形状调整、移动，支持 undo 与 redo，支持保存和导出图片等。
+
+**特点：**
+
+- 解耦合。分别实现数据模型、控制器和视图，拓展性强，可维护性高。
+- 命令与事务封装。数据的一次更新为一条命令，用户的一次操作为一个事务。
+- undo/redo 实现。由 controller 维护操作栈，由 数据模型维护数据镜像，恢复、重做以事务为可见单位。
+- 增量同步更新。标记对象状态，只在必要的时候传输数据。
+
+详情见 [blog](../xiang-mu/gong-xiang-wang-luo-hua-ban/)
+
+![画板主页](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/1587700600198.png)
+
+## Web 框架
+
+- 单点登录系统：基于 CAS （统一认证服务）流程，设计了自己的单点登录、登出系统。[code](https://github.com/ifrozenwhale/JAVAEE_SSO)
+
+- 基于 servlet 的 MVC 框架实现：通过实现 IOC 容器，管理 Java Bean，使用 servlet 实现 GET/PUT 请求处理控制器，并提供 ModelView 模式或 Json 对象。[code](https://github.com/ifrozenwhale/myspringmvc)
+
+  返回 JSP 页面的示例：
+
+  ```Java
+  @MyController
+  @MyRequestMapping("/app")
+  public class AppController {
+      // 自动依赖注入
+      @MyAutowired
+      private BookService bookService;
+      @MyRequestMapping(value = "/bookpage", method = "GET") // GET 方法 
+      @ResponseView
+      public MyModelView showBookPage(){
+          MyModelView modelView = new MyModelView();
+          List<Book> bookList = bookService.getAllBooks();
+          modelView.setView("bookinfo");
+          modelView.addModel("bookList", bookList);
+          return modelView;
+      }
+  }
+  ```
+
+  提供 Restful API，返回 Json 对象的示例：
+
+  ```java
+  @MyController
+  @MyRequestMapping("/api")
+  public class RestController {
+      @MyAutowired
+      private BookService bookService;
+      @MyRequestMapping(value = "/book", method = "GET")
+      @ResponseBody
+      public Book getBook(@MyRequestParam("id") String sid){
+          int id = Integer.parseInt(sid);
+          return bookService.getBookById(id);
+      }
+  }
+  ```
+
+
+## 其他
+
+**初学 **编程语言时的实现，在当时阶段做了完善的实现，并有一定的拓展。
+
+- 文件管理器：使用 Java 实现，支持文件树和文件列表，支持文件夹创建、删除、复制、粘贴、加密解密、压缩解压。[blog](http://frozenwhale.top/2021/05/26/file-manager)
+- 经典小游戏：[扫雷](https://github.com/ifrozenwhale/classic_game/tree/mine_sweeping)、[贪吃蛇](https://github.com/ifrozenwhale/classic_game/tree/snake)、[五子棋](https://github.com/ifrozenwhale/classic_game/tree/gobang)、[计算器](https://github.com/ifrozenwhale/classic_game/tree/calculator)、[ATM 模拟 ](https://github.com/ifrozenwhale/Easy-ATM)等
+
+# 科创与开发项目
+
+## 基于数据挖掘的编程助手研究
+
+基于开源项目搭建OJ系统，收集用户编程练习数据，二次开发，利用Java进行数据统计、用户行为分析，并使用微信小程序作为移动前端，进行数据可视化和互动，提供包括编程打卡、错题收集、推荐、习惯记录、任务计划等功能。
+
+个人实现大部分工作，从 web 前端、小程序，到数据库、算法，后端，以及部署，是一次较完整的全栈开发实践。
+
+详见 [blog](../xiang-mu/wecode/)
+
+![今天你打卡了吗](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527004206446.png)
+
+## 基于树莓派的生活垃圾智能分类系统
+
+整个项目由机械结构、电控、识别和展示四个部分构成，自己主要负责识别和展示，以及和部分电控。电控部分主要是基于 arduino，识别和展示基于 Raspberry 4。
+
+使用 keras 做了 InceptionV3/mobile_net 的迁移学习。考虑到树莓派的性能以及比赛的需求，并没有采用对视频流实时进行识别，而是手动设置采样频率，定时取样。
+
+做了较多的交互式展示：
+
+-  宣传视频播放和自动切换
+-  视频照片采集可视化
+-  垃圾分类结果、历史记录
+-  垃圾桶满载显示
+
+后端将 web 服务、分类算法、电控通信集成在了一起。
+
+- 通过 socketio 和浏览器建立长连接，用于推送结束信号/满载信号
+- 提供垃圾分类 API，返回垃圾分类结果和当前垃圾数量
+- 使用多线程，监听和 arduino 的串口 USB 通信
+- 使用内存数据库 Redis，解决global 变量在多线程中的不一致问题
+
+## 基于百度API的人脸分析和轻社交
+
+基于百度API的人脸检测与分析，并语音播报。详见 [blog](../xiang-mu/cquface/)
+
+**特点：**
+
+- 支持图片上传/即时拍照人脸特征分析展示
+- 分析报告分享、发现、点赞、评论，用户关注、收藏等， 历史记录查询和编辑
+- 登录/未登录身份权限控制等
+
+![分析页面](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/详情.png)
+
+# 课程实践
+
+## **组成原理/体系结构** | 5级流水线多周期 CPU 的实现
+
+使用 Verilog 实现了一个拥有五级流水线的 MIPS CPU，包含基本指令和异常处理在内的 57 条指令。
+
+实现了写回策略，四路组相连、伪LRU替换策略的cache缓存
+
+## **计算机网络** | 网络协议实现
+
+基础：在 Linux 上使用 C 语言在数据链路层通信，实现 Ethernet、IPv4 和 UDP 协议以及应用层封装。包括各层数据的校验，IP 分片与重组，最后为两个用户聊天的形式。
+
+扩展：实现 IP-IP Tunnel 隧道协议。
+
+[blog](../xiang-mu/ip-protocal/)
+
+## **编译原理** | 简单编译器
+
+[code](https://github.com/ifrozenwhale/Easy-C-Compiler)
+
+目标实现一个简单 C 语言子集的编译器，生成汇编指令并运行，目前到语义分析阶段。
+
+已经实现的语法分析，支持全局变量声明定义，函数调用等常见的语法，语法分析基于 LL(1) 方案，自顶向下使用栈进行分析，生成一棵语法分析树。
+
+完成了部分语义分析，定义了包括函数在内的 7 种常见的语义错误，以及表达式计算。
+
+![语法分析树](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210507025150612.png)
+
+![语义分析](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210601020342843.png)
+
+## **数字逻辑** | 实验和课程设计
+
+- **存储器设计**：包括单、双端的 RAM，以及 FIFO 阵列。[code](https://github.com/ifrozenwhale/digital-logic/tree/master/memory)
+- **状态机设计**：摩尔状态机序列检测器。[code](https://github.com/ifrozenwhale/digital-logic/tree/master/sequence_detection)
+- **密码锁：**实现一个电子密码锁，也需要在 FPGA 上进行实际验证。[code](https://github.com/ifrozenwhale/digital-logic/tree/master/project_lock)
+
+# 大数据与机器学习
+
+## 基于 Spark 的电影推荐和分析系统
+
+[部分 code](https://github.com/ifrozenwhale/bigdata-movie-recommend)
+
+![热度日历图](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527020001148.png)
+
+**主要工作：**
+
+- 数据集部署分布式 HDFS，中间数据和结果存储于 MongoDB 
+- 利用 sparkRdd 基于统计进行数据分析
+- 基于 ALS 协同过滤，得到用户电影推荐和相似电影推荐
+- 通过 TF-IDF 算法调整权重，计算电影的内容特征向量，实现基于内容的电影推荐
+- 数据可视化
+- 前后端系统搭建，数据交互式展示
+
+## 机器学习与优化算法
+
+**最优化实现：**[单纯形（BigM，对偶）](https://github.com/ifrozenwhale/Optimization_algorithm/blob/master/simplex_method)、[约束优化（PHR、DFP、黄金搜索）](https://github.com/ifrozenwhale/Optimization_algorithm/tree/master/phr)
+
+**机器学习基础算法**：[Logistics 回归](https://github.com/ifrozenwhale/machine-learning-code/tree/master/exp1)，[分类决策树与回归树](https://github.com/ifrozenwhale/machine-learning-code/tree/master/exp2)、[BP 网络](https://github.com/ifrozenwhale/machine-learning-code/tree/master/exp2)
+
+# 数学建模
+
+## 网络建模 [音乐影响网络](https://github.com/ifrozenwhale/2021icm-problemD)
+
+![音乐影响子网](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210309014544899.png)
+
+## 元胞自动机 | 计算机模拟 [卢浮宫计算模拟](https://github.com/ifrozenwhale/2019icm-problemD)
+
+![疏散模拟](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527021429093.png)
+
+## 不等圆的不重叠随机排列
+
+不等圆的packing问题，基于概率策略化的随机游走。在缝隙处可额外进行补充，使更加丰满。[code](https://github.com/ifrozenwhale/non-overlapping-circle)
+
+ ![七彩球鲸鱼](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20210527003719354.png)
+
+## 自定义轮廓的随机纹路生成
+
+体现了数学中的随机美。可以给出图形，在图形内基于 Voronoi 图生成随机纹路，可以进行颜色填充。[code](https://github.com/ifrozenwhale/randomPicture)
+
+
+
+![五彩鲸鱼](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/color_whale.png)
+
+
+
+
+
+![](https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/voronoi鲸鱼.png)
