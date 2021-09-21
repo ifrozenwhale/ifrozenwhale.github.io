@@ -512,7 +512,14 @@
                 <p><a target="_blank" rel="noopener" href="https://github.com/ifrozenwhale/network-ipv4-udp">https://github.com/ifrozenwhale/network-ipv4-udp</a></p>
 <h1 id="网络协议封装"><a href="#网络协议封装" class="headerlink" title="网络协议封装"></a>网络协议封装</h1><p>在 Linux 上使用 C 语言在数据链路层上通信，实现Ethernet，IPv4 和 UDP 协议以及应用层封装。</p>
 <h2 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h2><p>文件目录结构如下</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── Makefile</span><br><span class="line">├── chat.c</span><br><span class="line">├── client.c</span><br><span class="line">├── myhdr.h</span><br><span class="line">├── utils.c</span><br><span class="line">└── utils.h</span><br><span class="line">1 directory, 6 files</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">.
+├── Makefile
+├── chat.c
+├── client.c
+├── myhdr.h
+├── utils.c
+└── utils.h
+1 directory, 6 files<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li><code>Makefile</code>编译多文件。</li>
@@ -563,12 +570,27 @@
 <li><p>使用了<code>raw socket</code>在linux环境中运行。这里使用了<code>Windows Subsystem for Linux(WSL)</code>作为linux环境。</p>
 </li>
 <li><p>需要修改<code>client.c</code>或者<code>chat.c</code>中前面定义的<code>dst_mac</code>数组为要发送的mac地址。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mac_addr dst_mac = {<span class="number">0x00</span>, <span class="number">0x15</span>, <span class="number">0x5d</span>, <span class="number">0xda</span>, <span class="number">0x50</span>, <span class="number">0x66</span>};  <span class="comment">// dst MAC 地址</span></span><br></pre></td></tr></tbody></table></figure></li>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">mac_addr dst_mac <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">0x00</span><span class="token punctuation">,</span> <span class="token number">0x15</span><span class="token punctuation">,</span> <span class="token number">0x5d</span><span class="token punctuation">,</span> <span class="token number">0xda</span><span class="token punctuation">,</span> <span class="token number">0x50</span><span class="token punctuation">,</span> <span class="token number">0x66</span><span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment">// dst MAC 地址</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>编写了Makefile，用于编译多文件。Makefile文件内容如下：</p>
-<figure class="highlight makefile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">project: client.c chat.c utils.o # 编译整个工程所有的文件</span></span><br><span class="line">	gcc utils.o client.c -o client -lpthread</span><br><span class="line">	gcc utils.o chat.c -o chat -lpthread</span><br><span class="line">	gcc -c utils.c </span><br><span class="line"><span class="section">clientrun: client.c utils.c # 编译详细输出内容的程序，并运行</span></span><br><span class="line">	gcc -c utils.c</span><br><span class="line">	gcc utils.o client.c -o client -lpthread</span><br><span class="line">	sudo ./client</span><br><span class="line"><span class="section">chatrun: chat.c utils.c # 编译用于测试聊天的程序，并运行</span></span><br><span class="line">	gcc -c utils.c</span><br><span class="line">	gcc utils.o  chat.c -o chat -lpthread</span><br><span class="line">	sudo ./chat </span><br><span class="line"><span class="section">clean: # 清除所有的文件</span></span><br><span class="line">	rm client</span><br><span class="line">	rm chat</span><br><span class="line">	rm utils.o</span><br></pre></td></tr></tbody></table></figure></li>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token symbol">project</span><span class="token punctuation">:</span> client.c chat.c utils.o <span class="token comment"># 编译整个工程所有的文件</span>
+	gcc utils.o client.c -o client -lpthread
+	gcc utils.o chat.c -o chat -lpthread
+	gcc -c utils.c 
+<span class="token symbol">clientrun</span><span class="token punctuation">:</span> client.c utils.c <span class="token comment"># 编译详细输出内容的程序，并运行</span>
+	gcc -c utils.c
+	gcc utils.o client.c -o client -lpthread
+	sudo ./client
+<span class="token symbol">chatrun</span><span class="token punctuation">:</span> chat.c utils.c <span class="token comment"># 编译用于测试聊天的程序，并运行</span>
+	gcc -c utils.c
+	gcc utils.o  chat.c -o chat -lpthread
+	sudo ./chat 
+<span class="token symbol">clean</span><span class="token punctuation">:</span> <span class="token comment"># 清除所有的文件</span>
+	rm client
+	rm chat
+	rm utils.o<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h2 id="聊天形式（只显示数据内容）"><a href="#聊天形式（只显示数据内容）" class="headerlink" title="聊天形式（只显示数据内容）"></a>聊天形式（只显示数据内容）</h2><p>（仅用于测试）发送端和接收端为同一个MAC地址</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make chatrun</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">make</span> chatrun<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol>
 <li><p>分别在两个终端执行上述命令，启动程序</p>
@@ -578,7 +600,7 @@
 <p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226130341408.png" alt="image-20201226130341408"></p>
 </li>
 </ol>
-<h2 id="帧的解析和封装体现"><a href="#帧的解析和封装体现" class="headerlink" title="帧的解析和封装体现"></a>帧的解析和封装体现</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clientrun</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="帧的解析和封装体现"><a href="#帧的解析和封装体现" class="headerlink" title="帧的解析和封装体现"></a>帧的解析和封装体现</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">make</span> clientrun<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ol>
 <li><p>短消息互发（不分片）</p>
@@ -605,7 +627,15 @@
 </ol>
 <h2 id="调试信息"><a href="#调试信息" class="headerlink" title="调试信息"></a>调试信息</h2><h3 id="MAC地址、协议过滤"><a href="#MAC地址、协议过滤" class="headerlink" title="MAC地址、协议过滤"></a>MAC地址、协议过滤</h3><ol>
 <li><p>在网卡模式为混杂模式下，会发现有许多发往非本机MAC的帧被监听到，因此可以首先使用MAC地址进行过滤，只捕捉发往本机MAC地址的帧。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据MAC地址过滤，只读取发往本地MAC的帧</span></span><br><span class="line"><span class="keyword">int</span> eq = mac_equal(dst_mac, my_mac);</span><br><span class="line"><span class="keyword">if</span> (!eq) {</span><br><span class="line">    <span class="comment">// 取消以下注释，输出发往非本机MAC帧的MAC地址</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"[NOTE]: not frame to local. To "</span>);</span><br><span class="line">    output_mac(dst_mac);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    <span class="keyword">continue</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 根据MAC地址过滤，只读取发往本地MAC的帧</span>
+<span class="token keyword">int</span> eq <span class="token operator">=</span> <span class="token function">mac_equal</span><span class="token punctuation">(</span>dst_mac<span class="token punctuation">,</span> my_mac<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>eq<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 取消以下注释，输出发往非本机MAC帧的MAC地址</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"[NOTE]: not frame to local. To "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">output_mac</span><span class="token punctuation">(</span>dst_mac<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">continue</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/image-20201226135934272.png" alt="image-20201226135934272"></p>
 </li>
