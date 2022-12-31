@@ -59,6 +59,7 @@
     <title>Happy New Year</title>
   </head>
   <body onselectstart="return false">
+
     <canvas id="cas">浏览器不支持canvas</canvas>
     <div id="labels"></div>
     <div class="city"><img src="https://frozenwhale.oss-cn-beijing.aliyuncs.com/img/city_2.png" alt="" /></div>
@@ -67,7 +68,10 @@
 
 
     <script>
+ 
       let __audio = document.createElement("audio");
+      __audio.autoplay = true;
+
       //  修改音乐
       __audio.src = "http://music.163.com/song/media/outer/url?id=1842865092";
       __audio.loop = true;
@@ -409,7 +413,7 @@
         } else {
           let text = ele;
           context.save();
-          let fontSize = 128;
+          let fontSize = 98;
           context.font = fontSize + "px 宋体 bold";
           context.textAlign = "center";
           context.textBaseline = "middle";
